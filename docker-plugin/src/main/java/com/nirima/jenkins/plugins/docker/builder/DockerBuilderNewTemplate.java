@@ -52,7 +52,7 @@ public class DockerBuilderNewTemplate extends DockerBuilderNewTemplateBackwardCo
                                     String credentialsId, String idleTerminationMinutes,
                                     String sshLaunchTimeoutMinutes,
                                     String jvmOptions, String javaPath,
-                                    Integer memoryLimit, Integer cpuShares,
+                                    Integer memoryLimit, Integer cpuShares, 
                                     String prefixStartSlaveCmd, String suffixStartSlaveCmd,
                                     String instanceCapStr, String dnsString, String network,
                                     String dockerCommand,

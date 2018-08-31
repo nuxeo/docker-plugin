@@ -40,7 +40,7 @@ public class DockerTemplateTest {
     private DockerTemplate getDockerTemplateInstanceWithDNSHost(String dnsString) {
         final DockerTemplateBase dockerTemplateBase = new DockerTemplateBase(image, dnsString, network,
                 dockerCommand, volumesString, volumesString, environmentsString,
-                lxcConfString, hostname, memoryLimit, memorySwap, cpuShares, bindPorts, bindAllPorts, privileged, tty, macAddress);
+                lxcConfString, hostname, memoryLimit, memorySwap, cpuShares, 100000, -1, bindPorts, bindAllPorts, privileged, tty, macAddress);
 
         return new DockerTemplate(
                 dockerTemplateBase,

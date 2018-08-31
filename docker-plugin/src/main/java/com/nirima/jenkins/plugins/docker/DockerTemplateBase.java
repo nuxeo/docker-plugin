@@ -94,6 +94,9 @@ public class DockerTemplateBase implements Describable<DockerTemplateBase> {
     public final Integer memoryLimit;
     public final Integer memorySwap;
     public final Integer cpuShares;
+    public final Integer cpuPeriod;
+    public final Integer cpuQuota;
+
 
     public final boolean privileged;
     public final boolean tty;
@@ -117,6 +120,8 @@ public class DockerTemplateBase implements Describable<DockerTemplateBase> {
                               Integer memoryLimit,
                               Integer memorySwap,
                               Integer cpuShares,
+                              Integer cpuPeriod,
+                              Integer cpuQuota,
                               String bindPorts,
                               boolean bindAllPorts,
                               boolean privileged,
@@ -136,6 +141,8 @@ public class DockerTemplateBase implements Describable<DockerTemplateBase> {
         this.memoryLimit = memoryLimit;
         this.memorySwap = memorySwap;
         this.cpuShares = cpuShares;
+        this.cpuPeriod = cpuPeriod;
+        this.cpuQuota = cpuQuota;
 
         this.dnsHosts = splitAndFilterEmpty(dnsString, " ");
 
@@ -265,6 +272,14 @@ public class DockerTemplateBase implements Describable<DockerTemplateBase> {
     public Integer getCpuShares() {
         return cpuShares;
     }
+    
+    public Integer getCpuPeriod() {
+        return cpuPeriod;
+    }
+
+    public Integer getCpuQuota() {
+        return cpuQuota;
+    }
 
     public String[] getDockerCommandArray() {
         String[] dockerCommandArray = new String[0];
@@ -368,6 +383,14 @@ public class DockerTemplateBase implements Describable<DockerTemplateBase> {
 
         if (cpuShares != null && cpuShares > 0) {
             containerConfig.withCpuShares(cpuShares);
+        }
+
+        if (cpuPeriod != null && cpuPeriod > 0) {
+        	containerConfig.withCpuPeriod(cpuPeriod);
+        }
+ 
+        if (cpuQuota != null && cpuQuota > 0) {
+        	containerConfig.getHostConfig().withCpuQuota(cpuQuota);
         }
 
         if (memoryLimit != null && memoryLimit > 0) {

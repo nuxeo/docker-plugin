@@ -56,7 +56,7 @@ public abstract class DockerBuilderNewTemplateBackwardCompatibility extends Buil
     protected void convert1() {
         final DockerTemplateBase dockerTemplateBase = new DockerTemplateBase(image, dnsString, network, dockerCommand,
                 volumesString, null, environmentsString, lxcConfString,
-                hostname, memoryLimit, memorySwap, cpuShares, bindPorts, bindAllPorts, privileged, tty, macAddress
+                hostname, memoryLimit, memorySwap, cpuShares, 100000, -1, bindPorts, bindAllPorts, privileged, tty, macAddress
         );
 
         final DockerComputerSSHLauncher dockerComputerSSHLauncher = new DockerComputerSSHLauncher(

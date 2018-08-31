@@ -58,6 +58,14 @@ f.advanced(title: _("Container settings"), align: "left") {
     f.entry(title: _("CPU Shares"), field: "cpuShares") {
         f.number(name: "cpuShares", clazz: "positive-number", min: "0", step: "1")
     }
+	
+	f.entry(title: _("CPU Period"), field: "cpuPeriod") {
+		f.number(name: "cpuPeriod", clazz: "positive-number", min: "0", step: "1")
+	}
+	
+	f.entry(title: _("CPU Quota"), field: "cpuQuota") {
+		f.number(name: "cpuQuota", clazz: "positive-number", min: "0", step: "1")
+	}
 
     f.entry(title: _("Run container privileged"), field: "privileged") {
         f.checkbox()
